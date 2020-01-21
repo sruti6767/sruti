@@ -1,0 +1,32 @@
+<br>
+<br>
+<p>
+    FORM APPLICATION
+</p>
+<form [formGroup]="pro1form" (ngSubmit)="pro1()">
+  <div>
+    <label for="emails">Email:</label>
+    <input type="emails" class="form-control col-md-4" id="emails" placeholder="Enter emails" formControlName="emails">
+    <div *ngIf="pro1form.controls?.emails?.invalid">
+            
+      <span class="hass-error-message" *ngIf="pro1form.controls?.emails?.errors?.pattern">
+        <p class="validation">*Please enter valid Firstname.</p>
+      </span>
+    </div>
+  </div>
+  <div>
+    <label for="pwds">Password:</label>
+    <input type="password" class="form-control col-md-4" id="pwds" placeholder="Enter password" formControlName="pwds">
+    <div *ngIf="pro1form.controls?.pwds?.invalid">
+                      
+      <span class="hass-error-message" *ngIf="pro1form.controls?.pwds?.errors?.minlength">
+        <p class="validation">*Minimum 5 character.</p>
+      </span>
+      <span class="hass-error-message" *ngIf="pro1form.controls?.pwds?.errors?.maxlength">
+        <p class="validation">*Maximum 10 character.</p>
+      </span>
+      
+    </div>
+  </div>  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
